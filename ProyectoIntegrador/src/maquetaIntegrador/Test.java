@@ -9,12 +9,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+
+
 public class Test {
     
     /*
         Los metodos guardarListaDePersonas y obtenerListaDePersona
         deben estar en otra seccion, inserto todo junto para armar la maqueta
-    */
+    
     
     
     public static void guardarListaDeProductos(File file, List<Producto> lista){
@@ -34,31 +36,14 @@ public class Test {
 
     }
     
-    public static List<Producto>obtenerListaDeProductos(File file){
-
-        List<Producto>lista= new ArrayList<> ();
-        try{
-            FileInputStream fis = new FileInputStream (file);
-            ObjectInputStream ois = new ObjectInputStream (fis);
-            lista=(List<Producto>)ois.readObject ();
-            ois.close ();
-            
-        }catch(FileNotFoundException e){
-            System.out.println ("Fichero no existe");
-            
-        }catch (Exception e){
-            System.out.println (e.getMessage ());
-        }
-        return lista;
-    }
     
+    */
     
     
      public static void main (String[] args) {
-
        File file = new File ("D:\\ProyectoIntegrador\\src\\BasesDeDatos\\BaseProducto.txt");
        int opcion = 0;
-       List<Producto>objetivo=obtenerListaDeProductos(file);
+       List<Producto>objetivo=MetodosProducto.obtenerListaDeProductos(file);
         Scanner sc=new Scanner (System.in);
         do{
             System.out.println ("Registro de Producto");
@@ -89,7 +74,7 @@ public class Test {
                     System.out.println("Precio de Venta:");
                     double precio_venta = sc.nextDouble();
                     objetivo.add (new Producto (id,nombre,cantidad,precio_compra,precio_venta));
-                    guardarListaDeProductos (file,objetivo);
+                    MetodosProducto.guardarListaDeProductos(file, objetivo);
                     break;
                 case 2:
                     System.out.println ("Listar datos del Producto");
@@ -102,7 +87,7 @@ public class Test {
                     System.out.println ("Ingresa Id del Producto");
                     String buscado=sc.next ();
                     String mensaje="No se encontro el Producto\n";
-                    Producto x=null;
+                    /*Producto x=null;
                     for (Producto o:objetivo){
                         if(o.getId ().equals (buscado)){
                             mensaje="Producto encontrado\n";
@@ -120,7 +105,8 @@ public class Test {
                                         };
                         
                         System.out.println (FlipTable.of(headers,data));
-                    }
+                    }*/
+                    MetodosProducto.mostrarProducto(buscado,objetivo);
                     break;
                 case 4:
                     /* Podemos ampliar el codigo haicendo una busqueda por id, otra por nombre, etc*/
@@ -136,7 +122,8 @@ public class Test {
                             mensaje2="Producto eliminado\n";
                         }
                     }
-                    guardarListaDeProductos (file,objetivo);
+                    //MetodosProducto.eliminarProducto(id);
+                    MetodosProducto.guardarListaDeProductos(file, objetivo);
                     System.out.println (mensaje2);
                     break;
                 case 5:
@@ -190,7 +177,7 @@ public class Test {
                                     break;
                                 case 5:
                                     System.out.println ("\nOpcion cancelada\n");
-                                    guardarListaDeProductos (file,objetivo);
+                                    MetodosProducto.guardarListaDeProductos(file, objetivo);
                                     break;
                                 default:
                                     System.out.println ("\nOpcion invalida\n");
