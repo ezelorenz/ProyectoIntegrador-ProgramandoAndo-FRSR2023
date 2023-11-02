@@ -221,6 +221,19 @@ public class MetodosProducto {
                     sc.nextLine ();
                     System.out.println ("Id:");
                     String id=sc.nextLine ();
+                    boolean repetido = false;
+                    do{         
+                        for(Producto obj:objetivo){
+                            if(obj.getId ().equals (id)){
+                                repetido = true;
+                                System.out.println("ID existente. Pruebe otro ID");
+                                id = sc.nextLine();
+                            }
+                            else{
+                                repetido = false;
+                            }
+                        }
+                    }while(repetido == true);
                     System.out.println ("Nombre:");
                     String nombre=sc.nextLine ();
                     System.out.println ("Cantidad:");
