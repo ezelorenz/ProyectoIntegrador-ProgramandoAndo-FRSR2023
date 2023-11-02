@@ -1,0 +1,59 @@
+Producto			Descripcion		Marca			Cantidad	Unidad	Proveedor		Categoria			Precio Cuidados
+Arroz				Largo fino 0000		Primor			1		kg	Bunge			Almacén				$139,90
+Café				Instantáneo		La Morenita		100		gr	La Virginia		Almacén				$179,90
+Fideos				Tallarin		Cica			500		gr	Tres arroyos		Almacén				$129,90
+Fideos				Mostachol		Cica			500		gr	Tres arroyos		Almacén				$129,90
+Fideos				Cellentano		Cica			500		gr	Tres arroyos		Almacén				$129,90
+Galletitas dulces rellenas				Duquesa	Mondelez	162		gr	Mondelez		Almacén				$149,90
+Galletitas dulces rellenas				Melba	Mondelez	157		gr	Mondelez		Almacén				$149,90
+Galletitas dulces Rellena 	Vainilla Polvorita	Arcor			150		gr	Arcor			Almacén				$149,90
+Galletitas de agua		Mediatarde		Arcor			110		gr	Arcor			Almacén				$129,90
+Harina de maíz						Morixe			500		gr	Morixe			Almacén				$99,90
+Harina de trigo 		000			Morixe			1		kg	Morixe			Almacén				$129,90
+Harina de trigo 		0000			Morixe			1		kg	Morixe			Almacén				$129,90
+Harina de trigo 		Leudante		Morixe			1		kg	Morixe			Almacén				$129,90
+Mayonesa			Sin tacc doypack	Fanacoa			475		gr	Unilever		Almacén				$149,90
+Mermelada			Durazno			Noel			454		gr	Arcor			Almacén				$149,90
+Pan rallado						Morixe			500		gr	Morixe			Almacén				$99,90
+Puré de papas						Morixe			125		gr	Morixe			Almacén				$99,90
+Rebozador						Morixe			500		gr	Morixe			Almacén				$99,90
+Sal fina						Dos Anclas		500		gr	Cia. Introductora	Almacén				$99,90
+Vinagre				Alcohol			Alcazar			1000		cc	Menoyo			Almacén				$99,90
+Yerba mate						Mañanita		500		gr	Las Marias		Almacén				$129,90
+Pañales descartables		Ultrasec Talle XXG	Babysec			16		un	La Papelera del Plata	Bebés				$249,90
+Pañales descartables		Ultrasec Talle XG	Babysec			18		un	La Papelera del Plata	Bebés				$229,90
+Pañales descartables		Ultrasec Talle G	Babysec			22		un	La Papelera del Plata	Bebés				$209,90
+Pañales descartables		Ultrasec Talle M	Babysec			26		un	La Papelera del Plata	Bebés				$189,90
+Pañales descartables		Supersec Talle M	Pampers			26		un	Procter & Gamble	Bebés				$189,90
+Pañales descartables		Supersec Talle G	Pampers			22		un	Procter & Gamble	Bebés				$169,90
+Pañales descartables		Supersec Talle XG	Pampers			18		un	Procter & Gamble	Bebés				$169,90
+Pañales descartables		Supersec Talle XXG	Pampers			16		un	Procter & Gamble	Bebés				$149,90
+Agua Mineralizada		Con gas			Cellier Favaloro	2		lt	Prodea			Bebidas				$119,90
+Agua Mineralizada		Sin gas			Cellier Favaloro	2		lt	Prodea			Bebidas				$119,90
+Gaseosa				Cola			Cunnington		2,25		lt	Prodea			Bebidas				$139,90
+Vino blanco			Tetrabrick		Crespi			1		lt	Bodegas Peñaflor	Bebidas con alcohol		$139,90
+Vino tinto			Tetrabrick		Crespi			1		lt	Bodegas Peñaflor	Bebidas con alcohol		$139,90
+Vino tinto			Clásico			Resero			1125		ml	Fecovita		Bebidas con alcohol		$139,90
+Jabón en pan			para ropa		Gigante			120		gr	José Guma		Limpieza			$99,90
+Jabón en Polvo			Matic Antibacterial	Ala			800		gr	Unilever		Limpieza			$149,90
+Jabón líquido			para ropa Botella	Ace			800		ml	Procter & Gamble	Limpieza			$149,90
+Lavandina			Común			Odex			1		lt	Queruclor		Limpieza			$99,90
+Lavavajilla			Ultra limon		Ala			300		ml	Unilever		Limpieza			$149,90
+Limpiador Cocina		Antigrasa		Odex			450		ml	Queruclor		Limpieza			$99,90
+Limpiador de piso		Lavanda			Glade			1800		cc	SC Johnson		Limpieza			$99,90
+Papel higiénico			Hoja Simple 20 mts	Elite			4		un	La Papelera del Plata	Limpieza			$129,90
+Rollo de cocina			60 paños		Elite			3		un	La Papelera del Plata	Limpieza			$89,90
+Suavizante			Celeste doypack		Woody			900		ml	Queruclor		Limpieza			$99,90
+Acondicionador			Balance doypack		Polyana			300		ml	Queruclor		Perfumería			$149,90
+Acondicionador			Bomba Nutri		Sedal			190		ml	Unilever		Perfumería			$149,90
+Algodón	Hidrófilo 		clásico			Doncella		140		gr	Lenterdit		Perfumería			$99,90
+Desodorante hombre		Antitranspirante	Polyana			90		ml	Queruclor		Perfumería			$99,90
+Desodorante mujer		Antitranspirante	Polyana			90		ml	Queruclor		Perfumería			$99,90
+Jabón de tocador		Multicolor x 3 unid	Kenia			80		gr	José Guma		Perfumería			$99,90
+Pasta dental			dientes blancos		Odol			70		gr	Colgate			Perfumería			$99,90
+Protector diario		Pocket anatómico s/deo	Doncella		20		un	Lenterdit		Perfumería			$99,90
+Protector diario		Pocket anatómico c/deo	Doncella		20		un	Lenterdit		Perfumería			$99,90
+Shampoo				Balance	doypack		Polyana			300		ml	Queruclor		Perfumería			$149,90
+Shampoo				Bomba Nutri		Sedal			190		ml	Unilever		Perfumería			$149,90
+Toalla Femenina			Tela Suave con Alas	Ladysoft		8		un	La Papelera del Plata	Perfumería			$129,90
+Insecticida			Mata moscas y mosquitos	Mosqui Trap		370		ml	Queruclor		Repelentes e insecticidas	$149,90
