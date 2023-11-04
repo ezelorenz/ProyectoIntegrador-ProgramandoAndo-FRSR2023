@@ -1,5 +1,6 @@
 package maquetaIntegrador;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Test {
@@ -8,7 +9,7 @@ public class Test {
         int opcion = 0;
         do {
             System.out.println("Selecciones una opcion");
-            System.out.println("\t1-Ingresar a proveedores:");
+            System.out.println("\t1-Ingresar a proveedores");
             System.out.println("\t2-Ingresar a Menu");
             System.out.println("\t3-Salir");
             Scanner sc = new Scanner(System.in);
@@ -19,8 +20,14 @@ public class Test {
                     MetodosProveedor.mostrarProveedor();
                     System.out.println("*=====*=====*=====*======*\n");
                     break;
-                case 2:
-                    MetodosProducto.mostrarMenu();
+                case 2: 
+                    try {
+                        MetodosProducto.mostrarMenu();
+                    } catch (IOException e) {
+                        System.out.println("Ocurrió un error de entrada/salida al ejecutar la función debido un problema con el archivo de datos.");
+
+                    }
+                    //MetodosProducto.mostrarMenu();
                     break;
                 case 3:
                     System.out.println("Gracias");
