@@ -6,8 +6,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -15,8 +18,9 @@ import java.util.Scanner;
 
 public class MetodosProducto {
 
-    public static void mostrarMenu() {
-        File file = new File("C:\\Users\\USR\\Desktop\\UTNFRSR\\Segundo Semestre\\ProyectoIntegrador-ProgramandoAndo-FRSR2023\\ProyectoIntegrador\\src\\maquetaIntegrador\\BaseProductos.txt");
+    public static void mostrarMenu() throws IOException {
+        String ruta = "D:\\Docs\\Documents\\ProyectoIntegradorFRSR\\ProyectoIntegrador\\src\\maquetaIntegrador";
+        File file = new File(ruta + "\\BaseProduc1tos.txt");
         int opcion = 0;
         List<Producto> objetivos = MetodosProducto.obtenerListaDeProductos(file);
         Scanner sc = new Scanner(System.in);
@@ -39,7 +43,27 @@ public class MetodosProducto {
                 case 2:
                     System.out.println("Listar datos del Producto");
                     System.out.println("=======================\n");
-                    System.out.println(FlipTableConverters.fromIterable(objetivos, Producto.class));
+
+                    // Definir los nombres de las columnas
+                    String[] headers = {"ID", "Nombre", "Cantidad", "Precio Compra", "Precio Venta"};
+
+                    // Crear una matriz de objetos para los datos
+                    Object[][] data = new Object[objetivos.size()][headers.length];
+
+                    // Llenar la matriz de datos con los valores de la lista de productos
+                    for (int i = 0; i < objetivos.size(); i++) {
+                        Producto producto = objetivos.get(i);
+                        data[i][0] = producto.getId();
+                        data[i][1] = producto.getNombre();
+                        data[i][2] = producto.getCantidad();
+                        data[i][3] = producto.getPrecio_compra();
+                        data[i][4] = producto.getPrecio_venta();
+                    }
+
+                    // Generar y mostrar la tabla
+                    System.out.println(FlipTableConverters.fromObjects(headers, data));
+
+                    //System.out.println (FlipTableConverters.fromIterable (objetivos,Producto.class));
                     break;
                 case 3:
                     System.out.println("Buscar Producto");
@@ -61,20 +85,16 @@ public class MetodosProducto {
                         System.out.println("3. Salir/Cancelar");
 
                         try {
-
                             eliminar = sc.nextInt();
                             sc.nextLine();
-
                             switch (eliminar) {
                                 case 1:
                                     System.out.println("Ingrese el Id del producto");
                                     String idProducto = sc.nextLine();
                                     for (int i = 0; i < objetivos.size(); i++) {
-                                        if (objetivos.get(i).getId().equals(idProducto)) {
-                                            objetivos.remove(i);
-                                            System.out.println("Producto eliminado\n");
-                                            break;
-                                        }
+                                        objetivos.remove(i);
+                                        System.out.println("Producto eliminado\n");
+                                        break;
                                     }
                                     break;
                                 case 2:
@@ -115,7 +135,7 @@ public class MetodosProducto {
                     Producto producto = null;
 
                     for (Producto objetivo : objetivos) {
-                        if (objetivo.getId().equals(modificar)) {
+                        if (Integer.valueOf(objetivo.getId()).equals(modificar)) {
                             producto = objetivo;
                             mensaje3 = "Producto encontrado";
                         }
@@ -216,7 +236,7 @@ public class MetodosProducto {
         String mensaje = "No se encontro el Producto\n";
         Producto producto = null;
         for (Producto objetivo : objetivos) {
-            if (objetivo.getId().equals(buscado)) {
+            if (Integer.valueOf(objetivo.getId()).equals(buscado)) {
                 mensaje = "Producto encontrado\n";
                 producto = objetivo;
             }
@@ -224,7 +244,7 @@ public class MetodosProducto {
         System.out.println("\n" + mensaje);
         String[] headers = {"Id", "Nombre", "Cantidad", "Precio de Compra", "Precio de Venta"};
         if (producto != null) {
-            String[][] data = {{producto.getId(),
+            String[][] data = {{String.valueOf(producto.getId()),
                 producto.getNombre(),
                 producto.getCantidad(),
                 String.valueOf(producto.getPrecio_compra()),
@@ -235,25 +255,27 @@ public class MetodosProducto {
         }
     }
 
-    public static void registrarProducto(List<Producto> objetivo, Scanner sc, File file) {
+    public static void registrarProducto(List<Producto> objetivos, Scanner sc, File file) throws IOException {
         System.out.println("Registro de Producto");
         System.out.println("===================\n");
         System.out.println("Ingrese los siguientes datos:\n");
         sc.nextLine();
-        System.out.println("Id:");
-        String id = sc.nextLine();
-        boolean repetido = false;
-        do {
-            for (Producto obj : objetivo) {
-                if (obj.getId().equals(id)) {
-                    repetido = true;
-                    System.out.println("ID existente. Pruebe otro ID");
-                    id = sc.nextLine();
-                } else {
-                    repetido = false;
-                }
-            }
-        } while (repetido == true);
+        /*System.out.println ("Id:");
+                    String id=sc.nextLine ();
+                    int idEntero = Integer.parseInt(id);
+                    boolean repetido = false;
+                    do{         
+                        for(Producto obj:objetivo){
+                            if(Integer.valueOf(obj.getId ()).equals (id)){
+                                repetido = true;
+                                System.out.println("ID existente. Pruebe otro ID");
+                                id = sc.nextLine();
+                            }
+                            else{
+                                repetido = false;
+                            }
+                        }
+                    }while(repetido == true);*/
         System.out.println("Nombre:");
         String nombre = sc.nextLine();
         System.out.println("Cantidad:");
@@ -261,7 +283,26 @@ public class MetodosProducto {
         System.out.println("Precio de Compra:");
         double precio_compra = sc.nextDouble();
         double precio_venta = precio_compra * 1.3;
-        objetivo.add(new Producto(id, nombre, cantidad, precio_compra, precio_venta));
-        MetodosProducto.guardarListaDeProductos(file, objetivo);
+        objetivos.add(new Producto(1, nombre, cantidad, precio_compra, precio_venta));
+
+        FileWriter fw = new FileWriter("listaProductos.txt", false);
+        File archivo = new File("listaProductos.txt");
+        FileWriter escribir;
+        try {
+            escribir = new FileWriter(archivo, false);
+            PrintWriter linea = new PrintWriter(escribir);
+            for (Producto a : objetivos) {
+                linea.println(a.getId() + ","
+                        + a.getNombre() + ","
+                        + a.getCantidad() + ","
+                        + a.getPrecio_compra() + ","
+                        + a.getPrecio_venta());
+            }
+            linea.close();
+            escribir.close();
+        } catch (Exception e) {
+            System.out.println("Error al escribir el archivo");
+        }
+        //MetodosProducto.guardarListaDeProductos(file, objetivo);
     }
 }
