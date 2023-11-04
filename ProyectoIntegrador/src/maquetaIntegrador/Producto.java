@@ -3,25 +3,26 @@ package maquetaIntegrador;
 
 public class Producto {
     
-    private String id;
+    private int id;
     private String nombre;
     private String cantidad;
     private double precio_compra;
     private double precio_venta;
+    private static int contador;
 
-    public Producto(String id, String nombre, String cantidad, double precio_compra, double precio_venta) {
-        this.id = id;
+    public Producto(int id, String nombre, String cantidad, double precio_compra, double precio_venta) {
+        this.id = ++contador;
         this.nombre = nombre;
         this.cantidad = cantidad;
         this.precio_compra = precio_compra;
         this.precio_venta = precio_venta;
     }
 
-    public String getId() {
+    public int getId() {
     return id;
     }
     
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
