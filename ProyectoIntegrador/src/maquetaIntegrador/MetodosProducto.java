@@ -12,7 +12,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -83,46 +82,38 @@ public class MetodosProducto {
                         System.out.println("1. Id");
                         System.out.println("2. Nombre");
                         System.out.println("3. Salir/Cancelar");
-
-                        try {
-                            eliminar = sc.nextInt();
-                            sc.nextLine();
-                            switch (eliminar) {
-                                case 1:
-                                    System.out.println("Ingrese el Id del producto");
-                                    String idProducto = sc.nextLine();
-                                    for (int i = 0; i < objetivos.size(); i++) {
+                        eliminar = sc.nextInt();
+                        sc.nextLine();
+                        switch (eliminar) {
+                            case 1:
+                                System.out.println("Ingrese el Id del producto");
+                                String idProducto = sc.nextLine();
+                                for (int i = 0; i < objetivos.size(); i++) {
+                                    objetivos.remove(i);
+                                    System.out.println("Producto eliminado\n");
+                                    break;
+                                }
+                                break;
+                            case 2:
+                                System.out.println("Ingrese el nombre del producto");
+                                String nombreProducto = sc.nextLine();
+                                for (int i = 0; i < objetivos.size(); i++) {
+                                    if (objetivos.get(i).getNombre().equals(nombreProducto)) {
                                         objetivos.remove(i);
                                         System.out.println("Producto eliminado\n");
                                         break;
                                     }
-                                    break;
-                                case 2:
-                                    System.out.println("Ingrese el nombre del producto");
-                                    String nombreProducto = sc.nextLine();
-                                    for (int i = 0; i < objetivos.size(); i++) {
-                                        if (objetivos.get(i).getNombre().equals(nombreProducto)) {
-                                            objetivos.remove(i);
-                                            System.out.println("Producto eliminado\n");
-                                            break;
-                                        }
-                                    }
-                                    break;
-                                case 3:
-                                    System.out.println("\nOperacion cancelada\n");
-                                    MetodosProducto.guardarListaDeProductos(file, objetivos);
-                                    break;
-                                default:
-                                    System.out.println("Opción inválida\n");
-                                    break;
-                            }
-                        } catch (InputMismatchException e) {
-                            System.out.println("Debes introducir un número");
-                            sc.next();
+                                }
+                                break;
+                            case 3:
+                                System.out.println("\nOperacion cancelada\n");
+                                MetodosProducto.guardarListaDeProductos(file, objetivos);
+                                break;
+                            default:
+                                System.out.println("Opción inválida\n");
+                                break;
                         }
-
                         guardarListaDeProductos(file, objetivos);
-
                     } while (eliminar != 3);
                     break;
                 case 5:
