@@ -18,7 +18,7 @@ import java.util.Scanner;
 public class MetodosProducto {
 
     public static void mostrarMenu() throws IOException {
-        String ruta = "D:\\Docs\\Documents\\ProyectoIntegradorFRSR\\ProyectoIntegrador\\src\\maquetaIntegrador";
+        String ruta = "\\src\\maquetaIntegrador";
         File file = new File(ruta + "\\BaseProduc1tos.txt");
         int opcion = 0;
         List<Producto> objetivos = MetodosProducto.obtenerListaDeProductos(file);
