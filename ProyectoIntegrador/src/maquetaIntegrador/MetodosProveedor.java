@@ -14,7 +14,7 @@ public class MetodosProveedor {
       try {
          // Apertura del fichero y creacion de BufferedReader para poder
          // hacer una lectura comoda (disponer del metodo readLine()).
-         archivo = new File ("D:\\Docs\\Documents\\ProyectoIntegradorFRSR\\ProyectoIntegrador\\src\\maquetaIntegrador\\proveedores.txt");
+         archivo = new File ("src\\maquetaIntegrador\\proveedores.txt");
          fr = new FileReader (archivo);
          br = new BufferedReader(fr);
 
