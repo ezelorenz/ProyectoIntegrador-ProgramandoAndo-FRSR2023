@@ -58,23 +58,44 @@ public class MetodosProducto {
     }
 
     public static void registrarProducto(Scanner sc) {
-        System.out.println("Registro de Producto");
-        System.out.println("===================\n");
-        System.out.println("Ingrese los siguientes datos:\n");
-        sc.nextLine();
+       System.out.println("Registro de Producto");
+       System.out.println("===================\n");
+       System.out.println("Ingrese los siguientes datos:\n");
+       sc.nextLine();
 
-        System.out.println("Nombre:");
-        String nombre = sc.nextLine();
-        System.out.println("Cantidad:");
-        String cantidad = sc.nextLine();
-        System.out.println("Precio de Compra:");
-        double precioCompra = sc.nextDouble();
-        double precioVenta = precioCompra * 1.3;
+       System.out.println("Nombre:");
+       String nombre = sc.nextLine();
 
-        objetivos.add(new Producto(generarIdUnico(), nombre, cantidad, precioCompra, precioVenta));
-        System.out.println("Producto registrado con éxito.");
-        guardarDatos();  // Guardar los datos inmediatamente después de registrar un producto
-    }
+       String cantidad;
+       String precioCompraStr = "";
+       double precioCompra = 0;
+
+       // Validar la cantidad
+       do {
+           System.out.println("Cantidad:");
+           cantidad = sc.nextLine();
+           if (!cantidad.matches("\\d+")) {
+               System.out.println("La cantidad debe ser un número.");
+           }
+       } while (!cantidad.matches("\\d+"));
+
+       // Validar el precio de compra
+       do {
+           System.out.println("Precio de Compra:");
+           precioCompraStr = sc.nextLine();
+           precioCompraStr = precioCompraStr.replace(",",".");
+           if (!precioCompraStr.matches("\\d+(\\.\\d+)?")) {
+               System.out.println("El precio de compra debe ser un número.");
+           } else {
+               precioCompra = Double.parseDouble(precioCompraStr);
+           }
+       } while (!precioCompraStr.matches("\\d+(\\.\\d+)?"));
+
+       double precioVenta = precioCompra * 1.3;
+
+       objetivos.add(new Producto(generarIdUnico(), nombre, cantidad, precioCompra, precioVenta));
+       System.out.println("Producto registrado con éxito.");
+   }
 
     public static void listarProductos() {
         // Cargar los datos antes de listarlos
