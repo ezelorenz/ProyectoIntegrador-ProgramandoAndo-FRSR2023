@@ -125,28 +125,6 @@ public class MetodosProducto {
         return null;
     }
 
-
-    public static void mostrarProducto(String buscado) {
-        System.out.println("Listar datos del Producto");
-        System.out.println("=======================\n");
-
-        String[] headers = {"ID", "Nombre", "Cantidad", "Precio Compra", "Precio Venta"};
-        Object[][] data = new Object[objetivos.size()][headers.length];
-
-        for (int i = 0; i < objetivos.size(); i++) {
-            Producto producto = objetivos.get(i);
-            if (String.valueOf(producto.getId()).equals(buscado)) {
-                data[i][0] = producto.getId();
-                data[i][1] = producto.getNombre();
-                data[i][2] = producto.getCantidad();
-                data[i][3] = producto.getPrecio_compra();
-                data[i][4] = producto.getPrecio_venta();
-            }
-        }
-
-        System.out.println(FlipTableConverters.fromObjects(headers, data));
-    }
-
     public static void eliminarProducto(Scanner sc) {
         // Cargar los datos antes de eliminar un producto
         cargarDatos();
