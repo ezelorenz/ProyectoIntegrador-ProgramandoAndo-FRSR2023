@@ -3,6 +3,7 @@ package maquetaIntegrador;
 import com.jakewharton.fliptables.FlipTableConverters;
 
 import java.io.*;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -84,14 +85,16 @@ public class MetodosProducto {
 
         String[] headers = {"ID", "Nombre", "Cantidad", "Precio Compra", "Precio Venta"};
         Object[][] data = new Object[objetivos.size()][headers.length];
-
+        
+        DecimalFormat df = new DecimalFormat("0.00");//formato de cadena para mostrar solo 2 numeros decimales
+        
         for (int i = 0; i < objetivos.size(); i++) {
             Producto producto = objetivos.get(i);
             data[i][0] = producto.getId();
             data[i][1] = producto.getNombre();
             data[i][2] = producto.getCantidad();
-            data[i][3] = producto.getPrecio_compra();
-            data[i][4] = producto.getPrecio_venta();
+            data[i][3] = df.format(producto.getPrecio_compra());
+            data[i][4] = df.format(producto.getPrecio_venta());
         }
 
         String listado = FlipTableConverters.fromObjects(headers, data);
