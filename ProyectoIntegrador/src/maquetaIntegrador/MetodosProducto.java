@@ -95,7 +95,6 @@ public class MetodosProducto {
             data[i][4] = producto.getPrecio_venta();
         }
 
-        System.out.println(FlipTableConverters.fromObjects(headers, data));
     }
 
     public static void buscarProducto(Scanner sc) {
