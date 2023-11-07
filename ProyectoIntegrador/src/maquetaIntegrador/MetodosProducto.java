@@ -49,10 +49,10 @@ public class MetodosProducto {
                     modificarProducto(sc);
                     break;
                 case 6:
-                    System.out.println("Saliendo del programa");
+                    System.out.println("Saliendo del programa\n");
                     break;
                 default:
-                    System.out.println("Opcion invalida");
+                    System.out.println("Opcion invalida\n");
             }
         } while (opcion != 6);
     }
@@ -261,7 +261,7 @@ public class MetodosProducto {
             FileOutputStream ficheroSalida = new FileOutputStream(file);
             ObjectOutputStream objetoSalida = new ObjectOutputStream(ficheroSalida);
             objetoSalida.writeObject(objetivos);
-            System.out.println("Datos Guardados Correctamente");
+            System.out.println("Datos Guardados Correctamente\n");
             objetoSalida.close();
         } catch (IOException e) {
             System.out.println("Error al guardar los datos: " + e.getMessage());
@@ -275,7 +275,7 @@ public class MetodosProducto {
                 FileInputStream fis = new FileInputStream(file);
                 ObjectInputStream ois = new ObjectInputStream(fis);
                 objetivos = (List<Producto>) ois.readObject();
-                System.out.println("Datos Cargados Correctamente");
+                System.out.println("Datos Cargados Correctamente\n");
                 ois.close();
             } catch (Exception e) {
                 System.out.println("Error al cargar los datos: " + e.getMessage());
