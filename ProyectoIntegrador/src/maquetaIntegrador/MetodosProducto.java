@@ -1,6 +1,5 @@
 package maquetaIntegrador;
 
-import com.jakewharton.fliptables.FlipTable;
 import com.jakewharton.fliptables.FlipTableConverters;
 
 import java.io.*;
@@ -50,10 +49,10 @@ public class MetodosProducto {
                     modificarProducto(sc);
                     break;
                 case 6:
-                    System.out.println("Saliendo del programa");
+                    System.out.println("Saliendo del programa\n");
                     break;
                 default:
-                    System.out.println("Opcion invalida");
+                    System.out.println("Opcion invalida\n");
             }
         } while (opcion != 6);
     }
@@ -95,7 +94,14 @@ public class MetodosProducto {
             data[i][4] = producto.getPrecio_venta();
         }
 
-        System.out.println(FlipTableConverters.fromObjects(headers, data));
+        String listado = FlipTableConverters.fromObjects(headers, data);
+        String[] caracteresAReemplazar = {"╔", "═", "╤", "╗", "╠", "╧", "╣", "╚", "╝", "╪", "┼","─","╟", "╢"};
+         for (String caracter : caracteresAReemplazar) {
+            listado = listado.replace(caracter, "-");
+        }
+        listado = listado.replace("║", "|");
+        listado = listado.replace("│", "|");
+        System.out.println(listado);                              
     }
 
     public static void buscarProducto(Scanner sc) {
@@ -123,28 +129,6 @@ public class MetodosProducto {
             }
         }
         return null;
-    }
-
-
-    public static void mostrarProducto(String buscado) {
-        System.out.println("Listar datos del Producto");
-        System.out.println("=======================\n");
-
-        String[] headers = {"ID", "Nombre", "Cantidad", "Precio Compra", "Precio Venta"};
-        Object[][] data = new Object[objetivos.size()][headers.length];
-
-        for (int i = 0; i < objetivos.size(); i++) {
-            Producto producto = objetivos.get(i);
-            if (String.valueOf(producto.getId()).equals(buscado)) {
-                data[i][0] = producto.getId();
-                data[i][1] = producto.getNombre();
-                data[i][2] = producto.getCantidad();
-                data[i][3] = producto.getPrecio_compra();
-                data[i][4] = producto.getPrecio_venta();
-            }
-        }
-
-        System.out.println(FlipTableConverters.fromObjects(headers, data));
     }
 
     public static void eliminarProducto(Scanner sc) {
@@ -277,7 +261,7 @@ public class MetodosProducto {
             FileOutputStream ficheroSalida = new FileOutputStream(file);
             ObjectOutputStream objetoSalida = new ObjectOutputStream(ficheroSalida);
             objetoSalida.writeObject(objetivos);
-            System.out.println("Datos Guardados Correctamente");
+            System.out.println("Datos Guardados Correctamente\n");
             objetoSalida.close();
         } catch (IOException e) {
             System.out.println("Error al guardar los datos: " + e.getMessage());
@@ -291,7 +275,7 @@ public class MetodosProducto {
                 FileInputStream fis = new FileInputStream(file);
                 ObjectInputStream ois = new ObjectInputStream(fis);
                 objetivos = (List<Producto>) ois.readObject();
-                System.out.println("Datos Cargados Correctamente");
+                System.out.println("Datos Cargados Correctamente\n");
                 ois.close();
             } catch (Exception e) {
                 System.out.println("Error al cargar los datos: " + e.getMessage());
