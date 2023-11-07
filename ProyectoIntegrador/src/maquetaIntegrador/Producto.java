@@ -1,17 +1,16 @@
-
 package maquetaIntegrador;
 
-public class Producto {
-    
+import java.io.Serializable;
+
+public class Producto implements Serializable {
     private int id;
     private String nombre;
     private String cantidad;
     private double precio_compra;
     private double precio_venta;
-    private static int contador;
 
     public Producto(int id, String nombre, String cantidad, double precio_compra, double precio_venta) {
-        this.id = ++contador;
+        this.id = id;
         this.nombre = nombre;
         this.cantidad = cantidad;
         this.precio_compra = precio_compra;
@@ -19,9 +18,9 @@ public class Producto {
     }
 
     public int getId() {
-    return id;
+        return id;
     }
-    
+
     public void setId(int id) {
         this.id = id;
     }
@@ -41,11 +40,11 @@ public class Producto {
     public void setCantidad(String cantidad) {
         this.cantidad = cantidad;
     }
-    
+
     public double getPrecio_compra() {
         return precio_compra;
     }
-    
+
     public void setPrecio_compra(double precio_compra) {
         this.precio_compra = precio_compra;
     }
