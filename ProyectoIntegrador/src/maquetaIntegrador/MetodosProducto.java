@@ -1,6 +1,5 @@
 package maquetaIntegrador;
 
-import com.jakewharton.fliptables.FlipTable;
 import com.jakewharton.fliptables.FlipTableConverters;
 
 import java.io.*;
@@ -95,7 +94,14 @@ public class MetodosProducto {
             data[i][4] = producto.getPrecio_venta();
         }
 
-        System.out.println(FlipTableConverters.fromObjects(headers, data));
+        String listado = FlipTableConverters.fromObjects(headers, data);
+        String[] caracteresAReemplazar = {"╔", "═", "╤", "╗", "╠", "╧", "╣", "╚", "╝", "╪", "┼","─","╟", "╢"};
+         for (String caracter : caracteresAReemplazar) {
+            listado = listado.replace(caracter, "-");
+        }
+        listado = listado.replace("║", "|");
+        listado = listado.replace("│", "|");
+        System.out.println(listado);                              
     }
 
     public static void buscarProducto(Scanner sc) {
