@@ -220,28 +220,50 @@ public class MetodosProducto {
                         producto.setNombre(sc.nextLine());
                         break;
                     case 2:
+                        sc.nextLine();
                         System.out.println("Cantidad actual: " + producto.getCantidad());
                         System.out.println("Ingrese nueva cantidad");
-                        producto.setCantidad(sc.nextLine());
+
+                        String nuevaCantidadStr = sc.nextLine(); // Leer como cadena de texto
+                        try {
+                            int nuevaCantidad = Integer.parseInt(nuevaCantidadStr); // Intentar convertir a entero
+                            producto.setCantidad(Integer.toString(nuevaCantidad)); // Actualizar la cantidad
+                        } catch (NumberFormatException e) {
+                            System.out.println("Error: La cantidad debe ser un número entero válido.");
+                        }
                         break;
                     case 3:
+                        sc.nextLine();
                         System.out.println("Precio de Compra actual " + producto.getPrecio_compra());
                         System.out.println("Ingrese nuevo precio de compra");
-                        producto.setPrecio_compra(sc.nextDouble());
-                        sc.nextLine();
+
+                        String nuevoPrecioCompraStr = sc.nextLine(); // Leer como cadena de texto
+                        try {
+                            double nuevoPrecioCompra = Double.parseDouble(nuevoPrecioCompraStr); // Intentar convertir a double
+                            producto.setPrecio_compra(Double.toString(nuevoPrecioCompra)); // Actualizar el precio de compra
+                        } catch (NumberFormatException e) {
+                            System.out.println("Error: El precio de compra debe ser un número válido.");
+                        }
                         break;
                     case 4:
-                        System.out.println("Precio de Venta actual " + producto.getPrecio_venta());
-                        System.out.println("Ingrese nuevo precio de venta");
-                        producto.setPrecio_venta(sc.nextDouble());
                         sc.nextLine();
+                        System.out.println("Precio de Venta actual: " + producto.getPrecio_venta());
+                        System.out.println("Ingrese nuevo precio de venta");
+
+                        String nuevoPrecioVentaStr = sc.nextLine(); // Leer como cadena de texto
+                        try {
+                            double nuevoPrecioVenta = Double.parseDouble(nuevoPrecioVentaStr); // Intentar convertir a double
+                            producto.setPrecio_venta(nuevoPrecioVenta); // Actualizar el precio de venta
+                        } catch (NumberFormatException e) {
+                            System.out.println("Error: El precio de venta debe ser un número válido.");
+                        }
                         break;
                     case 5:
                         System.out.println("\nOpción cancelada\n");
                         break;
                     default:
                         System.out.println("\nOpción inválida\n");
-                }
+}
             } while (opcion2 != 5);
         }
 

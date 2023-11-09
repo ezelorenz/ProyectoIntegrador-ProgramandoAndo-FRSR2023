@@ -45,8 +45,11 @@ public class Producto implements Serializable {
         return precio_compra;
     }
 
-    public void setPrecio_compra(double precio_compra) {
-        this.precio_compra = precio_compra;
+    public void setPrecio_compra(String precio_compra) {
+        try {
+        this.precio_compra = Double.parseDouble(precio_compra);
+        }catch(NumberFormatException e){
+        }
     }
 
     public double getPrecio_venta() {
